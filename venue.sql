@@ -1,10 +1,10 @@
 CREATE TABLE venue(
-   Name       VARCHAR(30) NOT NULL PRIMARY KEY
+   Name        VARCHAR(30) NOT NULL PRIMARY KEY
   ,City        VARCHAR(15) NOT NULL
-  ,State		VARCHAR(2) NOT NULL
-  ,Team          VARCHAR(20) NOT NULL
-  ,Capacity       INTEGER 
-  ,Year_Opened     INTEGER
+  ,State		   VARCHAR(2) NOT NULL
+  ,Team        VARCHAR(20) NOT NULL
+  ,Capacity    INTEGER 
+  ,Year_Opened INTEGER
 );
 
 INSERT INTO venue(Name,City,State,Team,Capacity,Year_Opened) VALUES ('John Paul Jones Arena', 'Charlottesville', 'VA', 'University of Virginia', 14593, 2008);
