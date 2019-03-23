@@ -11,12 +11,12 @@
 --   6. (Sanity check) Execute a simple query in the "SQL" tab to ensure tables are there
 --
 
-CREATE TABLE IF NOT EXISTS Users ( -- [Employee Table]
-	userID INT NOT NULL PRIMARY KEY, -- Primary Key of this table
+CREATE TABLE IF NOT EXISTS Users ( 
+	userID INT NOT NULL PRIMARY KEY, 
 	name VARCHAR(10) NOT NULL,
-	password VARCHAR(15) NOT NULL, -- job title e.g. 'Clerk' (note: can be 'Manager') 
-	email VARCHAR (25), -- who is the manager of *this* employee 
-	birthday DATE NOT NULL, -- Date type takes format: '18 NOV 2015'
+	password VARCHAR(15) NOT NULL, 
+	email VARCHAR (25), 
+	birthday DATE NOT NULL 
 );
 
 
@@ -28,9 +28,3 @@ INSERT INTO Users VALUES (4, 'Baller' ,  'bigb@ller!'    , "bigballer@bbb.com", 
 INSERT INTO Users VALUES (5, 'Porter' ,  'iloveotto'    , "porter@otto.com", '1 JAN 1987');
 INSERT INTO Users VALUES (6, 'Thillairajah' ,  'p@$$w0rd789'    , "bet@hello.com", '9 MAR 1971');
 INSERT INTO Users VALUES (7, 'Myers' ,  'catzrCOOL'    , "nugget@yahoo.com", '31 OCT 1979');
-
-
-
-
-
-
