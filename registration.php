@@ -9,7 +9,7 @@
     // Form the SQL query (an INSERT query)
     $sql="INSERT INTO Users (userID, name, password, email, birthday)
     VALUES
-    ('$_POST[usernmane]','$_POST[name]','$_POST[password]','$_POST[email]','$_POST[birthday]')";
+    ('$_POST[idnum]','$_POST[name]','$_POST[password]','$_POST[email]','$_POST[birthday]')";
 
     if (!mysqli_query($con,$sql))
     {
