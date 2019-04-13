@@ -21,6 +21,7 @@
         mysqli_close($con);
     }
     else{
-        echo "Passwords do not match, failed to create a new account.";
+        header('Location: confirmFail.html');
+        exit;
     }
 ?>
