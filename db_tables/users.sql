@@ -16,15 +16,17 @@ CREATE TABLE IF NOT EXISTS Users (
 	name VARCHAR(10) NOT NULL,
 	password VARCHAR(15) NOT NULL, 
 	email VARCHAR (25), 
-	birthday DATE NOT NULL 
+	birthday DATE NOT NULL,
+	adminn BIT NOT NULL 
 );
 
 
 -- Inserting values into the tables 
-INSERT INTO Users VALUES (1, 'Smith' ,  'thisissecure'    , "hi@hi.com", '17 DEC 1997');
-INSERT INTO Users VALUES (2, 'Jones' ,  'p@$$w0rd123'    , "yo@yo.com", '4 FEB 1997');
-INSERT INTO Users VALUES (3, 'Miller' ,  'p@$$w0rd456'    , "noodle@gmail.com", '3 JUN 1983');
-INSERT INTO Users VALUES (4, 'Baller' ,  'bigb@ller!'    , "bigballer@bbb.com", '23 NOV 1969');
-INSERT INTO Users VALUES (5, 'Porter' ,  'iloveotto'    , "porter@otto.com", '1 JAN 1987');
-INSERT INTO Users VALUES (6, 'Thillairajah' ,  'p@$$w0rd789'    , "bet@hello.com", '9 MAR 1971');
-INSERT INTO Users VALUES (7, 'Myers' ,  'catzrCOOL'    , "nugget@yahoo.com", '31 OCT 1979');
+INSERT INTO Users VALUES (1, 'Smith' ,  'thisissecure'    , "hi@hi.com", '17 DEC 1997',0);
+INSERT INTO Users VALUES (2, 'Jones' ,  'p@$$w0rd123'    , "yo@yo.com", '4 FEB 1997',0);
+INSERT INTO Users VALUES (3, 'Miller' ,  'p@$$w0rd456'    , "noodle@gmail.com", '3 JUN 1983',0);
+INSERT INTO Users VALUES (4, 'Baller' ,  'bigb@ller!'    , "bigballer@bbb.com", '23 NOV 1969',0);
+INSERT INTO Users VALUES (5, 'Porter' ,  'iloveotto'    , "porter@otto.com", '1 JAN 1987',0);
+INSERT INTO Users VALUES (6, 'Thillairajah' ,  'p@$$w0rd789'    , "bet@hello.com", '9 MAR 1971',0);
+INSERT INTO Users VALUES (7, 'Myers' ,  'catzrCOOL'    , "nugget@yahoo.com", '31 OCT 1979',0);
+INSERT INTO Users VALUES (8, 'Admin', 'admin', 'admin@admin.com', '30 OCT 1979',1);

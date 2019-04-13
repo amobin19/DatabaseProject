@@ -18,7 +18,12 @@ if(isset($_POST['username'])){
     $result=mysql_query($sql);
     
     if(mysql_num_rows($result)==1){
-        echo " You Have Successfully Logged in";
+	if($result['admin']==1){
+        echo " You Have Successfully Logged in as an admin ";
+	}
+	else{
+	echo "You have successfully logged in as a user";
+	}
         exit();
     }
     else{
