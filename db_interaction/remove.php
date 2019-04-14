@@ -1,5 +1,22 @@
 <html>
 <body>
+
+<style>
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: initial;
+
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+</style>
+
 <?php
 
   include_once("./library.php"); // To connect to the database
@@ -31,6 +48,10 @@
   $player5 = determineEmpty($row['Player5']);
   mysqli_close($con);
 ?>
+
+<h3>Remove Players</h3>
+
+<a href="landing.php" class="button"> Go Back </a>
 
 <p>Check the boxes corresponding to the players you'd like to remove from your team.</p>
 <p>When a player is removed, the slot they previously occupied becomes empty.</p>

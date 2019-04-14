@@ -1,5 +1,22 @@
 <html>
 <body>
+
+<style>
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: initial;
+
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+</style>
+
 <?php
 
   include_once("./library.php"); // To connect to the database
@@ -31,6 +48,10 @@
   $player5 = determineEmpty($row['Player5']);
   mysqli_close($con);
 ?>
+
+<h3>Add or Replace Players</h3>
+
+<a href="landing.php" class="button"> Go Back </a>
 
 <p>Enter, in each of the fields, the name of the new player(s) you wish to add.</p>
 <p>The current player for each slot is shown. Not all of the fields need to be filled.</p>
