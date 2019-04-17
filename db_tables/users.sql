@@ -14,12 +14,42 @@
 CREATE TABLE IF NOT EXISTS Users ( 
 	userID INT NOT NULL PRIMARY KEY, 
 	name VARCHAR(10) NOT NULL,
-	password VARCHAR(15) NOT NULL, 
-	email VARCHAR (25), 
-	birthday DATE NOT NULL 
+	password BINARY(40) NOT NULL, 
+	email VARCHAR (25) 
+	birthday DATE NOT NULL,
+	admin BIT NOT NULL 
 );
+-- Inserting values into the tables 
+INSERT INTO Users VALUES (1, 'Smith' ,  'afa48f12de4b5c48608c5a788aa73bb27fe17326'    , "hi@hi.com", '1997-12-17',0);
+INSERT INTO Users VALUES (2, 'Jones' , '0c22fcdd688925e4d11569aee3cf53c3b25f1af9'  , "yo@yo.com", '1997-02-04',1);
+/*
+CREATE PROCEDURE AddUser
+	@UserID INT,
+	@Name VARCHAR(10),
+	@Password VARCHAR(30),
+	@Email VARCHAR (25),
+	@Birthday DATE,
+	@Admin BIT
+AS
 
+SET NOCOUNT ON
 
+INSERT INTO Users
+	([userID], [name],[password], [email], [birthday],[admin])
+	VALUES
+	(@UserID, @Name, @Password, @Email, @Birthday, @Admin)
+
+GO
+
+EXECUTE AddUser
+	@UserID = 1,
+	@Name = 'Smith',
+	@Password = 'thisissecure',
+	@Email = 'hi@hi.com',
+	@Birthday = '17 DEC 1997',
+	@Admin = 0
+GO*/
+/*
 -- Inserting values into the tables 
 INSERT INTO Users VALUES (1, 'Smith' ,  'thisissecure'    , "hi@hi.com", '17 DEC 1997');
 INSERT INTO Users VALUES (2, 'Jones' ,  'p@$$w0rd123'    , "yo@yo.com", '4 FEB 1997');
@@ -28,3 +58,4 @@ INSERT INTO Users VALUES (4, 'Baller' ,  'bigb@ller!'    , "bigballer@bbb.com", 
 INSERT INTO Users VALUES (5, 'Porter' ,  'iloveotto'    , "porter@otto.com", '1 JAN 1987');
 INSERT INTO Users VALUES (6, 'Thillairajah' ,  'p@$$w0rd789'    , "bet@hello.com", '9 MAR 1971');
 INSERT INTO Users VALUES (7, 'Myers' ,  'catzrCOOL'    , "nugget@yahoo.com", '31 OCT 1979');
+*/
