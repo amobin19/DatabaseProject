@@ -18,11 +18,11 @@
         {
             die('Error: ' . mysqli_error($con));
         }
-        header("Location: successReg.html");
+        header("Location: ../html_pages/successReg.html");
         mysqli_close($con);
     }
     else{
-        header('Location: confirmFail.html');
+        header('Location: ../html_pages/confirmFail.html');
         exit;
     }
 ?>
