@@ -1,6 +1,6 @@
 <?php
-  $SERVER = 'mysql.cs.virginia.edu';
-  $USERNAME = 'sample'; // Your username
-  $PASSWORD = 'sample'; // Your password
-  $DATABASE = 'sample_DBproj'; // Your database name
+    $SERVER = 'mysql.cs.virginia.edu';
+    $USERNAME = 'am8wc';
+    $PASSWORD = 'Aymo19@cs';
+    $DATABASE = 'am8wc_DBproj';
 ?>

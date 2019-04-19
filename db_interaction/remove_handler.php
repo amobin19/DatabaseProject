@@ -19,7 +19,7 @@
 </style>
 
 <?php
-
+  session_start();
   // This block is used to get the names of players on the user's team
 
   require_once('./library.php');
@@ -30,7 +30,7 @@
     return null;
   }
 
-  $user_id = 5; // hardcoded for now
+  $user_id = $_SESSION["uid"]; // hardcoded for now
 
   if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     // formulate the query to update team
@@ -44,12 +44,14 @@
       $begin_sql = $begin_sql . $key . " = " . "''";
       $num_loops = $num_loops + 1;
     }
-    $end_sql = " WHERE userID = " . $user_id;
+    $end_sql = " WHERE userID = " . (int)$user_id;
     $sql = $begin_sql . $end_sql;
 
     // send in the query to update the team
-    if (!mysqli_query($con,$sql)){
-      die('Error: ' . mysqli_error($con));
+    if ($num_loops > 1){ // only want to send the query if the team has been updated.
+      if (!mysqli_query($con,$sql)){
+        die('Error: ' . mysqli_error($con));
+      }
     }
     mysqli_close($con);
   }

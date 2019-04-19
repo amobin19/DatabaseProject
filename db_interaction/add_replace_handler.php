@@ -18,7 +18,7 @@
 </style>
 
 <?php
-
+  session_start();
   // This block is used to get the names of players on the user's team
 
   require_once('./library.php');
@@ -29,7 +29,7 @@
     return null;
   }
 
-  $user_id = 5; // hardcoded for now
+  $user_id = $_SESSION["uid"];
 
   if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
@@ -37,10 +37,12 @@
     $begin_sql = "UPDATE user_player_roster SET ";
     $iterator = 1;
     $num_loops = 1;
+
     foreach ($_POST as $key => $value){
       if ($value != ""){
         $player_slot = "Player" . $iterator;
         $player_name = $value;
+        $players[] = strtolower($value); // add each name to an array of players
         if ($num_loops != 1){
           $begin_sql = $begin_sql . ", ";
         }
@@ -49,19 +51,47 @@
       }
       $iterator = $iterator + 1;
     }
-    $end_sql = " WHERE userID = " . $user_id;
+    $end_sql = " WHERE userID = " . (int)$user_id;
     $sql = $begin_sql . $end_sql;
 
-    // send in the query to update the team
-    if (!mysqli_query($con,$sql)){
-      die('Error: ' . mysqli_error($con));
+    // function to determine if their entry is a real player
+    function playersExist($playerArray, $connection){
+      $query = "SELECT Player FROM PlayerInfo WHERE 1";
+      $result = mysqli_query($connection,$query);
+      while ($row = $result->fetch_array()){
+        $valid_players[] = strtolower($row["Player"]);
+      }
+      $valid = true;
+
+      foreach ($playerArray as $player){
+          if (!in_array($player, $valid_players)){
+            $valid = false;
+          }
+        }
+
+      //echo $valid;
+      return $valid;
     }
+
+    $v = playersExist($players, $con);
+
+    // send in the query to update the team
+    if ($num_loops > 1 and $v){ // We only want to send a query if they've updated something
+      $response = "Your team has been updated!";
+      if (!mysqli_query($con,$sql)){
+        die('Error: ' . mysqli_error($con));
+      }
+    }
+    else {
+      $response = "Invalid Submission Error: Either you did not fill in any of the fields, or one or more entries were not valid NCAA players.";
+    }
+
     mysqli_close($con);
   }
 ?>
 
 
-<p>Your team has been updatedi!</p><br>
+<p><?php echo $response; ?></p><br>
 <a href="landing.php" class="button">View Team</a>
 
 </html>
