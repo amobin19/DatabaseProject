@@ -9,19 +9,20 @@
 
     if ($_POST["password"] === $_POST["password2"]) {
         // Form the SQL query (an INSERT query)
-        $sql="INSERT INTO Users (userID, name, password, email, birthday)
+	$password_hash = sha1($_POST["password"]);
+        $sql="INSERT INTO Users (userID, name, password, email, birthday, admin)
         VALUES
-        ('$_POST[idnum]','$_POST[name]','$_POST[password]','$_POST[email]','$_POST[birthday]')";
+        ('$_POST[idnum]','$_POST[name]','$password_hash','$_POST[email]','$_POST[birthday]',0)";
 
         if (!mysqli_query($con,$sql))
         {
             die('Error: ' . mysqli_error($con));
         }
-        header("Location: successReg.html");
+        header("Location: ../html_pages/successReg.html");
         mysqli_close($con);
     }
     else{
-        header('Location: confirmFail.html');
+        header('Location: ../html_pages/confirmFail.html');
         exit;
     }
 ?>
