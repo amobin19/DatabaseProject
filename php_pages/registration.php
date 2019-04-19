@@ -10,9 +10,9 @@
     if ($_POST["password"] === $_POST["password2"]) {
         // Form the SQL query (an INSERT query)
 	$password_hash = sha1($_POST["password"]);
-        $sql="INSERT INTO Users (userID, name, password, email, birthday)
+        $sql="INSERT INTO Users (userID, name, password, email, birthday, admin)
         VALUES
-        ('$_POST[idnum]','$_POST[name]','$password_hash','$_POST[email]','$_POST[birthday]')";
+        ('$_POST[idnum]','$_POST[name]','$password_hash','$_POST[email]','$_POST[birthday]',0)";
 
         if (!mysqli_query($con,$sql))
         {
