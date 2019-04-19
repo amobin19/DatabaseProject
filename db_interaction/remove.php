@@ -18,7 +18,7 @@ a.button {
 </style>
 
 <?php
-
+  session_start();
   include_once("./library.php"); // To connect to the database
   $con = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);
   // Check connection
@@ -27,7 +27,7 @@ a.button {
     mysqli_connect_error();
   }
 
-  $user_id = 5;
+  $user_id = $_SESSION["uid"];
   $sql = "SELECT * FROM user_player_roster WHERE userID = '$user_id'";
   $result = mysqli_query($con,$sql);
 
