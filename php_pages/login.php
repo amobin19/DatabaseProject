@@ -1,21 +1,17 @@
 <html>
 <body>
 
-<style>
-a.button {
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    appearance: button;
+<head>
 
-    text-decoration: none;
-    color: initial;
+  <link rel="stylesheet" href="../styles.css">
 
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-</style>
+</head>
+
+<div class="topnav">
+  <a class="active" href="login.php">Home</a>
+  <a href="../db_interaction/landing.php">My Team</a>
+  <a href="">Stats Lab</a>
+</div>
 
 <?php 
 
@@ -40,6 +36,7 @@ if(isset($_POST['username'])){
     $uname=$_POST['username'];
     $password=$_POST['password'];
     $password_hash = sha1($password);
+    // commenting out anna's stuff because it's not working now.
     
 
     $sql="select * from Users where email='".$uname."'AND password='".$password_hash."' limit 1";
@@ -52,15 +49,27 @@ if(isset($_POST['username'])){
     
     if(count($row) > 0){
         $_SESSION["uid"] = $row["userID"] . "<br>";
-        echo "<p>Welcome, " . $uname . "<p>";
-        echo '<a href="../db_interaction/landing.php" class="button"> View Fantasy Team </a>';
+        $_SESSION["verified"] = True;
+        $_SESSION["username"] = $_POST["username"];
+        echo "<div class='a'>";
+        echo "<h1>Welcome, " . $uname . "</h1>";
+        echo "</div>";
         //exit();
     }
     else{
-        echo " You Have Entered Incorrect Password";
+        header("Location: ../html_pages/loginFail.html");
         //exit();
     }
         
+}
+else {
+  if (isset($_SESSION["verified"]) && $_SESSION["verified"] == True){
+    // user has already logged in and is returning to this page
+    echo "<div class='a'>";
+    echo "<h1>Welcome, " . $_SESSION["username"] . "</h1>";
+    echo "</div>";
+
+  }
 }
 ?>
 

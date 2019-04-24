@@ -1,21 +1,17 @@
 <html>
 <body>
 
-<style>
-a.button {
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    appearance: button;
+<head>
 
-    text-decoration: none;
-    color: initial;
+  <link rel="stylesheet" href="../styles.css">
 
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-</style>
+</head>
+
+<div class="topnav">
+  <a class="active" href="login.php">Home</a>
+  <a href="../db_interaction/landing.php">My Team</a>
+  <a href="">Stats Lab</a>
+</div>
 
 <?php
   session_start();
