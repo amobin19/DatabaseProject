@@ -39,7 +39,7 @@ if(isset($_POST['username'])){
     // commenting out anna's stuff because it's not working now.
     
 
-    $sql="select * from Users where name='".$uname."'AND password='".$password_hash."' limit 1";
+    $sql="select * from Users where email='".$uname."'AND password='".$password_hash."' limit 1";
     
     $result = mysqli_query($con, $sql);
     $row = mysqli_fetch_array($result);
