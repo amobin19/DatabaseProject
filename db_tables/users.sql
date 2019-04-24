@@ -12,16 +12,19 @@
 --
 
 CREATE TABLE IF NOT EXISTS Users ( 
-	userID INT NOT NULL PRIMARY KEY, 
+	userID INT NOT NULL PRIMARY KEY AUTO_INCREMENT, 
 	name VARCHAR(10) NOT NULL,
 	password VARBINARY(40) NOT NULL, 
-	email VARCHAR (25) 
+	email VARCHAR (25) UNIQUE, 
 	birthday DATE NOT NULL,
 	admin BIT NOT NULL 
 );
 -- Inserting values into the tables 
 INSERT INTO Users VALUES (1, 'Smith' ,  'afa48f12de4b5c48608c5a788aa73bb27fe17326'    , "hi@hi.com", '1997-12-17',0);
 INSERT INTO Users VALUES (2, 'Jones' , '0c22fcdd688925e4d11569aee3cf53c3b25f1af9'  , "yo@yo.com", '1997-02-04',1);
+
+
+-- DELETE BEFORE USING 
 /*
 CREATE PROCEDURE AddUser
 	@UserID INT,

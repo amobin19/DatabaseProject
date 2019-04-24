@@ -16,7 +16,8 @@
 
         if (!mysqli_query($con,$sql))
         {
-            die('Error: ' . mysqli_error($con));
+            header("Location: ../html_pages/confirmFail.html");
+            // die('Error: ' . mysqli_error($con));
         }
         header("Location: ../html_pages/successReg.html");
         mysqli_close($con);
