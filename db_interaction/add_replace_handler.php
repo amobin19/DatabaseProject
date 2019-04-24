@@ -1,21 +1,17 @@
 <html>
 <body>
 
-<style>
-.button {
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    appearance: button;
+<head>
 
-    text-decoration: none;
-    color: initial;
+  <link rel="stylesheet" href="../styles.css">
 
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-</style>
+</head>
+
+<div class="topnav">
+  <a class="active" href="login.php">Home</a>
+  <a href="../db_interaction/landing.php">My Team</a>
+  <a href="">Stats Lab</a>
+</div>
 
 <?php
   session_start();
@@ -57,6 +53,7 @@
     // function to determine if their entry is a real player
     function playersExist($playerArray, $connection){
       $query = "SELECT Player FROM PlayerInfo WHERE 1";
+      //$query = "CALL testing_again();";
       $result = mysqli_query($connection,$query);
       while ($row = $result->fetch_array()){
         $valid_players[] = strtolower($row["Player"]);
