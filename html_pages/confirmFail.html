@@ -1,43 +1,103 @@
+<!DOCTYPE html>
 <html>
 <head>
-   <title>Registration Page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit button */
+.registerbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+</style>
 </head>
 <body>
-   <h1>Passwords Do Not Match. Please Try Again.</h1>
-   <form action="registration.php" method="post">
-      <table>
-         <tr>
-            <td>UserID: </td>
-            <td><input type="number" name="idnum"></td>
-         </tr>
-         <tr>
-            <td>Name: </td> 
-            <td><input type="text" name="name"></td>
-         </tr>
-         <tr>
-            <td>Password: </td>
-            <td><input type="password" name="password"></td>
-         </tr>
-         <tr>
-            <td>Confirm Password: </td>
-            <td><input type="password" name="password2"></td>
-         </tr>
-         <tr>
-            <td>Email: </td>
-            <td><input type="text" name="email"></td>
-         </tr>
-         <tr>
-            <td>Birthday: </td>
-            <td><input type="date" name="birthday"></td>
-         </tr>
-         <tr>
-            <td></td>
-            <td><input type="submit" value="Submit"></td>
-         </tr>
-      </table>
-   </form>
-   <form action="index.html">
-      <input type = "submit" value = " Login "/>
-    </form> 
+
+<form action="../php_pages/registration.php" method="post">
+  <div class="container">
+    <h1>Register</h1>
+    <p>Passwords Do Not Match. Please Try Again.</p>
+    <hr>
+    <label for="name"><b>Name</b></label>
+    <input type="text" placeholder="Enter Name" name="name" required>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
+
+    <label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password" required>
+
+    <label for="password2"><b>Repeat Password</b></label>
+    <input type="password" placeholder="Repeat Password" name="password2" required>
+
+    <label for="birthday"><b>Birthday</b></label>
+    <input type="text" placeholder="MM/DD/YYYY" name="birthday" required>
+    <hr>
+    <p>By creating an account you agree to our <a href="terms.html">Terms & Privacy</a>.</p>
+
+    <button type="submit" class="registerbtn">Register</button>
+  </div>
+  
+  <div class="container signin">
+    <p>Already have an account? <a href="index.html">Sign in</a>.</p>
+  </div>
+</form>
+
 </body>
 </html>
