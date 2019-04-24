@@ -1,0 +1,54 @@
+body {
+	border: 20px solid black;
+	margin: 20px auto;
+	width: 90%;
+	max-width: 740px;
+	padding-bottom: 20px;
+	background-color: white;
+}
+
+h4 {
+	color: #3498db;
+	font-family: 'Source Sans Pro', sans-serif;
+	text-transform: uppercase;
+	font-weight: 100;
+	padding-left: 2.5%;
+	letter-spacing: 0.2rem; /* size mult by root elem */
+}
+
+h2 {
+	padding-left: 2.5%;
+	font-family: 'Source Sans Pro', sans-serif;
+	border-top: 1px solid #bd
+	width: 10%;
+	font-size: 2em;
+	font-weight: bold;
+	color: black;
+}
+
+p {
+	margin-left: 2.5%;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+#wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#registerbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  opacity: 0.9;
+}
+
+#registerbtn:hover {
+  opacity: 1;
+}
+
