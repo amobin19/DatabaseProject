@@ -95,28 +95,49 @@ if(isset($_POST['submit'])){
 
 <?php 
 echo $output1;
-echo $output2; 
-echo $output3; 
-echo $output4; 
-echo $output5; 
-echo $output6; 
-echo $output7; 
-echo $output8; 
-echo $output9; 
+echo "<br>"; 
+echo $output2;
+echo "<br>"; 
+echo $output3;
+echo "<br>"; 
+echo $output4;
+echo "<br>"; 
+echo $output5;
+echo "<br>"; 
+echo $output6;
+echo "<br>"; 
+echo $output7;
+echo "<br>"; 
+echo $output8;
+echo "<br>"; 
+echo $output9;
+echo "<br>"; 
 echo $output10;
+echo "<br>";
 echo $output11;
-echo $output12; 
-echo $output13; 
-echo $output14; 
-echo $output15; 
-echo $output16; 
-echo $output17; 
-echo $output18; 
-echo $output19; 
+echo "<br>";
+echo $output12;
+echo "<br>"; 
+echo $output13;
+echo "<br>"; 
+echo $output14;
+echo "<br>"; 
+echo $output15;
+echo "<br>"; 
+echo $output16;
+echo "<br>"; 
+echo $output17;
+echo "<br>"; 
+echo $output18;
+echo "<br>"; 
+echo $output19;
+echo "<br>"; 
 echo $output20;
-echo $output21; 
-echo $output22;   
-
+echo "<br>";
+echo $output21;
+echo "<br>"; 
+echo $output22;
+echo "<br>";   
 ?>
 
 </body>
