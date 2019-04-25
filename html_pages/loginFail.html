@@ -60,6 +60,12 @@ a {
   color: dodgerblue;
 }
 
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
 </style>
 </head>
 <body>
@@ -77,10 +83,9 @@ a {
     <input type="password" placeholder="Enter Password" name="password" required>
 
     <button type="submit" class="registerbtn">Login</button>
-    <button onclick="window.location.href='b.php'" class="registerbtn">Click me</button>
-    <hr>
-    <p>Haven't registered yet? Register a new account here!</p>
-    <button onclick="window.location.href='registration.html'" class="registerbtn">Register Here!</button>
+      <div class="container signin">
+    <p>Don't have an account? <a href="registration.html">Register here</a>.</p>
+  </div>
   </div>
 </form>
 
