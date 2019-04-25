@@ -34,7 +34,27 @@ if(isset($_POST['submit'])){
 				while($rows = $resultSet->fetch_assoc()){
 					      $rk = $rows['Rk'];
 					      $class = $rows['Class'];
-					      $output = "Rank " . $rk . "" ;
+                                              $mp = $rows['MP'];               
+                                              $trb = $rows['TRB'];
+                                              $ast = $rows['AST'];            
+                                              $stl = $rows['STL'];                                                           
+                                              $blk = $rows['BLK'];  
+                                              $tov = $rows['TOV'];             
+                                              $pf = $rows['PF'];               
+                                              $pts = $rows['PTS'];                                                           
+                                              $fg = $rows['FG'];              
+                                              $twop = $rows['2P'];               
+                                              $threep = $rows['3P'];                                         
+                                              $ft = $rows['FT'];                                        
+                                              $pts_pg = $rows['PTS_PG'];                                 
+                                              $trb_pg = $rows['TRB_PG'];                                 
+                                              $ast_pg = $rows['AST_PG'];                                 
+                                              $stl_pg = $rows['STL_PG'];                                 
+                                              $blk_pg = $rows['BLK_PG'];                                 
+                                              $per = $rows['PER'];                                       
+                                              $ws = $rows['WS'];                                         
+                                              $bpm = $rows['BPM'];
+					      $output = "Rank: " . $rk . " Class: " . $class . " " ;
 					      	    	   }
 	 }	
 	  else{
