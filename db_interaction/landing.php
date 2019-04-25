@@ -10,7 +10,7 @@
 <div class="topnav">
   <a class="active" href="/~efw5xb/DatabaseProject/php_pages/login.php">Home</a>
   <a href="../db_interaction/landing.php">My Team</a>
-  <a href="../db_interaction/playerSearch">Stats Lab</a>
+  <a href="../db_interaction/playerSearch.php">Stats Lab</a>
 </div>
 
 <?php
@@ -44,14 +44,22 @@
   $player4 = determineEmpty($row['Player4']);
   $player5 = determineEmpty($row['Player5']);
   mysqli_close($con);
+
 ?>
 
-<h2>Your Team:</h2><br><br>
-<p>1. <?php echo $player1; ?></p><br><br>
-<p>2. <?php echo $player2; ?></p><br><br>
-<p>3. <?php echo $player3; ?></p><br><br>
-<p>4. <?php echo $player4; ?></p><br><br>
-<p>5. <?php echo $player5; ?></p><br><br>
+<h2>Your Team:</h2>
+
+<form action="download.php" method="post">
+  <input type="Submit" value="Download Team Stats (CSV)">
+</form>
+
+<br>
+
+<p>1. <?php echo $player1; ?></p><br>
+<p>2. <?php echo $player2; ?></p><br>
+<p>3. <?php echo $player3; ?></p><br>
+<p>4. <?php echo $player4; ?></p><br>
+<p>5. <?php echo $player5; ?></p><br>
 
 <a href="add_replace.php" class="button"> Add/Replace Players </a>
 <a href="remove.php" class="button"> Remove Players </a>
