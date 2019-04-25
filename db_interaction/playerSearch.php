@@ -40,25 +40,47 @@
 
       $nada_badassit = array("ACC"=>"School", "headCoach"=>"Coach", "PlayerInfo"=>"Player", "PlayerStats"=>"Player", "venue"=>"Name");
 
-      // deal with the user's search field input
-      $search = $mysqli->real_escape_string($_POST['search']);
-      $resultSet = $mysqli->query("SELECT * FROM $table WHERE $nada_badassit[$table] = '$search'");
-      if($resultSet->num_rows > 0){
-        $iterator = 0;
-        $row = $resultSet->fetch_assoc();
-        foreach ($row as $val){
-          echo "<p>" . $stat_labels[$iterator] . ": " . $val . "</p>";
-          $iterator = $iterator + 1;
+      if (isset($_POST["viewall"])){
+         echo "<table border=1>";
+         foreach ($stat_labels as $label){
+           echo "<th>" . $label . "</th>";
+         }
+
+        $resultSet = $mysqli->query("SELECT * FROM $table WHERE 1");
+        if($resultSet->num_rows > 0){
+          while ($row = $resultSet->fetch_assoc()){
+            $iterator = 0;
+            echo "<tr>";
+            foreach ($row as $val){
+              echo "<td>" . $val . "</td>";
+              $iterator = $iterator + 1;
+            }
+            echo "</tr>";
+          }
         }
+        echo "</table>";
       }
       else {
-        echo "<br>";
-        echo "No results.";
+        // deal with the user's search field input
+        $search = $mysqli->real_escape_string($_POST['search']);
+        $resultSet = $mysqli->query("SELECT * FROM $table WHERE $nada_badassit[$table] = '$search'");
+        if($resultSet->num_rows > 0){
+          $iterator = 0;
+          $row = $resultSet->fetch_assoc();
+          foreach ($row as $val){
+            echo "<p>" . $stat_labels[$iterator] . ": " . $val . "</p>";
+            $iterator = $iterator + 1;
+          }
+        }
+        else {
+          echo "<br>";
+          echo "No results.";
+        }
       }
     }	
     else {
       echo "<br>";
-      echo "Choose a search category and enter text in the fields below.";
+      echo "Choose a search category and enter text in the form below.";
     } 
   ?>
 
@@ -75,9 +97,12 @@
     <option value="venue">Venues</option>
   </select>
   </br>
+  <label for="box">View all:</label>
+  <input id="box" type="checkbox" name="viewall" value="yes">
   </br>
-  <input type="TEXT" name="search"/>
-  <input type="SUBMIT" name="submit" value="Search"/>
+  </br>
+  <input type="text" name="search"/>
+  <input type="Submit" name="submit" value="Submit"/>
 </form>
 </div>
 
