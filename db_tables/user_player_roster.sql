@@ -1,6 +1,6 @@
 CREATE TABLE user_player_roster(
-	userID			INT NOT NULL PRIMARY KEY
-	,Player1      	VARCHAR(30) NOT NULL
+	userID			INT NOT NULL PRIMARY KEY AUTO_INCREMENT
+	,Player1      	VARCHAR(30)
 	,Player2     	VARCHAR(30) 
 	,Player3     	VARCHAR(30) 
 	,Player4     	VARCHAR(30) 
