@@ -14,7 +14,7 @@
      VALUES
      ('$_POST[idnum]','$_POST[name]','$password_hash','$_POST[email]','$_POST[birthday]',0)";
      $sql.= "INSERT INTO user_player_roster (userID, Player1, Player2, Player3, Player4, Player5) VALUES('$_POST[idnum]','NULL','NULL','NULL','NULL','NULL')";
-     $sql.= "INSERT INTO user_team_roster (userID, Team) VALUES('$_POST[idnum]', 'NULL')";
+     //$sql.= "INSERT INTO user_team_roster (userID, Team) VALUES('$_POST[idnum]', 'NULL')";
 
      if (!$mysqli->multi_query($sql))
      {
