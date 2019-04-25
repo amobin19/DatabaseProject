@@ -55,7 +55,7 @@ if(isset($_POST['submit'])){
      $per = $rows['PER'];                                       
      $ws = $rows['WS'];                                         
      $bpm = $rows['BPM'];
-     $output0 = "Player: " . $name
+     $output0 = "Player: " . $name;
      $output1 = "Rank: " . $rk;
      $output2 = "Class: " . $class;
      $output3 = "Minutes Played: " . $mp;
