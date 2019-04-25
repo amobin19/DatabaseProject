@@ -39,7 +39,7 @@
         $stat_labels[] = $row["COLUMN_NAME"];
       }
 
-      $nada_badassit = array("ACC"=>"School", "headCoach"=>"Coach", "PlayerInfo"=>"Player", "PlayerStats"=>"Player", "venue"=>"Name");
+      $nada_badassit = array("ACC"=>"School", "headCoach"=>"Coach", "PlayerInfo"=>"Player", "PlayerStats"=>"Player", "venue"=>"Name", "Conference_Champ"=>"Conference", "tournament_mvp"=>"Player");
 
       if (isset($_POST["viewall"])){
          echo "<table border=1>";
@@ -98,9 +98,11 @@ echo $output;
   <label for="categories">Search Category:</label>
   <select id="categories" name="category">
     <option value="ACC">ACC Schools</option>
+    <option value="Conference_Champ">Conference Champs</option>
     <option value="headCoach">Head Coaches</option>
     <option value="PlayerInfo">Players (information)</option>
     <option value="PlayerStats">Players (statistics)</option>
+    <option value="tournament_mvp">MVPs</option>
     <option value="venue">Venues</option>
   </select>
   </br>
