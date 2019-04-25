@@ -9,20 +9,20 @@
 
     if ($_POST["password"] === $_POST["password2"]) {
         // Form the SQL query (an INSERT query)
-	$password_hash = sha1($_POST["password"]);
-        $sql="INSERT INTO Users (userID, name, password, email, birthday, admin)
-        VALUES
-        ('$_POST[idnum]','$_POST[name]','$password_hash','$_POST[email]','$_POST[birthday]',0)";
+       $password_hash = sha1($_POST["password"]);
+       $sql="INSERT INTO Users (userID, name, password, email, birthday, admin)
+       VALUES
+       ('$_POST[idnum]','$_POST[name]','$password_hash','$_POST[email]','$_POST[birthday]',0); INSERT INTO user_player_roster (userID, Player1, Player2, Player3, Player4, Player5) VALUES('$_POST[idnum]','NULL','NULL','NULL','NULL','NULL'); INSERT INTO user_team_roster (userID, Team) VALUES('$_POST[idnum]', 'NULL');";
 
-        if (!mysqli_query($con,$sql))
-        {
-            die('Error: ' . mysqli_error($con));
-        }
-        header("Location: ../html_pages/successReg.html");
-        mysqli_close($con);
+       if (!mysqli_query($con,$sql))
+       {
+        die('Error: ' . mysqli_error($con));
     }
-    else{
-        header('Location: ../html_pages/confirmFail.html');
-        exit;
-    }
+    header("Location: ../html_pages/successReg.html");
+    mysqli_close($con);
+}
+else{
+    header('Location: ../html_pages/confirmFail.html');
+    exit;
+}
 ?>
