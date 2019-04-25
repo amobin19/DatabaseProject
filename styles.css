@@ -12,6 +12,11 @@ a.button {
     padding-right: 5px;
 }
 
+.SearchBar{
+  width: 600px;
+  position: absolute;
+}
+
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;

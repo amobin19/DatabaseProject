@@ -32,6 +32,7 @@ if(isset($_POST['submit'])){
 	$resultSet = $mysqli->query("SELECT * FROM PlayerStats WHERE player = '$search'");
 	if($resultSet->num_rows > 0){
     while($rows = $resultSet->fetch_assoc()){
+     $name = $rows['Player']; 
      $rk = $rows['Rk'];
      $class = $rows['Class'];
      $mp = $rows['MP'];               
@@ -54,6 +55,7 @@ if(isset($_POST['submit'])){
      $per = $rows['PER'];                                       
      $ws = $rows['WS'];                                         
      $bpm = $rows['BPM'];
+     $output0 = "Player: " . $name
      $output1 = "Rank: " . $rk;
      $output2 = "Class: " . $class;
      $output3 = "Minutes Played: " . $mp;
@@ -88,12 +90,16 @@ if(isset($_POST['submit'])){
 
 </br>
 </br>
+<div class="SearchBar">
 <form method="POST">
   <input type="TEXT" name="search"/>
   <input type="SUBMIT" name="submit" value="Search"/>
 </form>
+</div>
 
-<?php 
+<?php
+echo $output0;
+echo "<br>"; 
 echo $output1;
 echo "<br>"; 
 echo $output2;
