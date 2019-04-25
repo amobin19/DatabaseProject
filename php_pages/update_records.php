@@ -28,7 +28,7 @@
                 die('Error: ' . mysqli_error($con));
                 }
 	$school = $_POST['School'];
-        echo "Record Updated for ".$_POST['School']."!"; // Output to user
+        echo "Record Updated".$_POST['School']."!"; // Output to user
         mysqli_close($con);
         }
         else {
