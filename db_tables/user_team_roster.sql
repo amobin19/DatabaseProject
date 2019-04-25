@@ -1,6 +1,6 @@
 CREATE TABLE user_team_roster(
-	userID			INT NOT NULL PRIMARY KEY
-	,Team       	VARCHAR(30) NOT NULL
+	userID			INT NOT NULL PRIMARY KEY AUTO_INCREMENT
+	,Team       	VARCHAR(30)
   	
 );
 
