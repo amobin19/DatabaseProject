@@ -7,11 +7,6 @@
 
 </head>
 
-<div class="topnav">
-  <a class="active" href="login.php">Home</a>
-  <a href="../db_interaction/landing.php">My Team</a>
-  <a href="">Stats Lab</a>
-</div>
 
 <?php 
 
@@ -51,9 +46,14 @@ if(isset($_POST['username'])){
         $_SESSION["uid"] = $row["userID"] . "<br>";
         $_SESSION["verified"] = True;
         $_SESSION["username"] = $_POST["username"];
-        echo "<div class='a'>";
-        echo "<h1>Welcome, " . $uname . "</h1>";
-        echo "</div>";
+	$_SESSION["admin"] = $row["admin"];
+	$admin_bit = $row["admin"];
+	$login_true = 1;
+	$sql_create_user = "CREATE USER 'testuser'@'localhost' IDENTIFIED BY '" .$password_hash."';";
+	$result = mysqli_query($con,$sql_create_user);
+	if($admin_bit == 1){
+		$sql_grant = "GRANT ALL ON am8wc_DBproj TO 'testuser'@'localhost'";
+	}  	
         //exit();
     }
     else{
@@ -73,7 +73,20 @@ else {
 }
 ?>
 
-
+<div class="topnav">
+  <a class="active" href="login.php">Home</a>
+  <a href="../db_interaction/landing.php">My Team</a>
+  <a href="">Stats Lab</a>
+<?php if($admin_bit == 1) : ?>
+  <a href="../html_pages/add_entry.html">Add Players</a>
+  <a href="../html_pages/update_record.html">Update Records</a>
+<?php endif; ?>
+</div>
+<?php if($login_true == 1){
+	echo "<div class='a'>";
+        echo "<h1>Welcome, " . $uname . "</h1>";
+        echo "</div>";
+}
+?>
 </body>
 </html>
-
