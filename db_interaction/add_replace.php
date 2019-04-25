@@ -8,7 +8,7 @@
 </head>
 
 <div class="topnav">
-  <a class="active" href="login.php">Home</a>
+  <a class="active" href="login.php">FantasyHoos</a>
   <a href="../db_interaction/landing.php">My Team</a>
   <a href="">Stats Lab</a>
 </div>
