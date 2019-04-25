@@ -15,6 +15,7 @@ a.button {
 .SearchBar{
   width: 600px;
   position: absolute;
+  text-align: center;
 }
 
 body {
