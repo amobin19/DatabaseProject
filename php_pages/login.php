@@ -76,7 +76,7 @@ else {
 <div class="topnav">
   <a class="active" href="login.php">Home</a>
   <a href="../db_interaction/landing.php">My Team</a>
-  <a href="">Stats Lab</a>
+  <a href="../db_interaction/playerSearch.php">Stats Lab</a>
 <?php if($admin_bit == 1) : ?>
   <a href="../html_pages/add_entry.html">Add Players</a>
   <a href="../html_pages/update_record.html">Update Records</a>
