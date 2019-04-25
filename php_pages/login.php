@@ -65,7 +65,7 @@ if(isset($_POST['username'])){
 ?>
 
 <div class="topnav">
-  <a class="active" href="login.php">Home</a>
+  <a class="active" href="login.php">FantasyHoos</a>
   <a href="../db_interaction/landing.php">My Team</a>
   <a href="../db_interaction/playerSearch.php">Stats Lab</a>
 <?php if($admin_bit == 1) : ?>
