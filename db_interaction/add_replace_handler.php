@@ -70,19 +70,47 @@
       return $valid;
     }
 
-    $v = playersExist($players, $con);
+    function noRepeats($playerArray, $connection){
+      $noRepeats = True;
+      if (count($playerArray) !== count(array_unique($playerArray))){
+        $noRepeats = False;
+      }
+      $user_id = $_SESSION["uid"];
+      $sql = "SELECT * FROM user_player_roster WHERE userID = '$user_id'";
+      $result = mysqli_query($connection,$sql);
+
+      while ($row = $result->fetch_array()){
+        $current_team[] = strtolower($row["Player1"]);
+        $current_team[] = strtolower($row["Player2"]);
+        $current_team[] = strtolower($row["Player3"]);
+        $current_team[] = strtolower($row["Player4"]);
+        $current_team[] = strtolower($row["Player5"]);
+      }
+
+      foreach ($playerArray as $player){
+        if (in_array($player, $current_team)){
+          $noRepeats = false;
+        }
+      }
+      return $noRepeats;
+    }
+
+    $v1 = playersExist($players, $con);
+    $v2 = noRepeats($players, $con);
 
     // send in the query to update the team
-    if ($num_loops > 1 and $v){ // We only want to send a query if they've updated something
+    if ($num_loops > 1 && $v1 && $v2){ // We only want to send a query if they've updated something
       $response = "Your team has been updated!";
       if (!mysqli_query($con,$sql)){
         die('Error: ' . mysqli_error($con));
       }
     }
-    else {
+    else if (!$v1){
       $response = "Invalid Submission Error: Either you did not fill in any of the fields, or one or more entries were not valid NCAA players.";
     }
-
+    else {
+      $response = "Invalid Submission Error: Player Repeated";
+    }
     mysqli_close($con);
   }
 ?>
