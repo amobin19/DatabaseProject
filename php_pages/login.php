@@ -69,6 +69,7 @@ if(isset($_POST['username'])){
   <a class="active" href="login.php">FantasyHoos</a>
   <a href="../db_interaction/landing.php">My Team</a>
   <a href="../db_interaction/playerSearch.php">Stats Lab</a>
+  <a href="../html_pages/index.html">Logout</a>
 <?php if($admin_bit == 1) : ?>
   <a href="../html_pages/add_entry.html">Add Players</a>
   <a href="../html_pages/update_record.html">Update Records</a>

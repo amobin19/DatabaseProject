@@ -11,6 +11,7 @@
     <a class="active" href="/~efw5xb/DatabaseProject/php_pages/login.php">FantasyHoos</a>
     <a href="../db_interaction/landing.php">My Team</a>
     <a href="../db_interaction/playerSearch.php">Stats Lab</a>
+    <a href="../html_pages/index.html">Logout</a>
   </div>
 
 
