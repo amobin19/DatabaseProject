@@ -46,6 +46,7 @@ if(isset($_POST['username'])){
         $_SESSION["uid"] = $row["userID"] . "<br>";
         $_SESSION["verified"] = True;
         $_SESSION["username"] = $_POST["username"];
+        $user_name = $row["name"];
 	$_SESSION["admin"] = $row["admin"];
 	$admin_bit = $row["admin"];
 	$login_true = 1;
@@ -65,7 +66,7 @@ if(isset($_POST['username'])){
 ?>
 
 <div class="topnav">
-  <a class="active" href="login.php">Home</a>
+  <a class="active" href="login.php">FantasyHoos</a>
   <a href="../db_interaction/landing.php">My Team</a>
   <a href="../db_interaction/playerSearch.php">Stats Lab</a>
 <?php if($admin_bit == 1) : ?>
@@ -79,7 +80,7 @@ if(isset($_POST['username'])){
 if (isset($_SESSION["verified"]) && $_SESSION["verified"] == True){
   // user has already logged in and is returning to this page
   echo "<div class='a'>";
-  echo "<h1>Welcome, " . $_SESSION["username"] . "!</h1>";
+  echo "<h1>Welcome, " . $user_name . "!</h1>";
   echo "<br><br>";
   echo "<h3>Use the navigation bar above to manage your fantasy team or explore the stats lab.</h3>";
   echo "</div>";
