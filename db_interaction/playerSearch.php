@@ -8,9 +8,9 @@
   </head>
 
   <div class="topnav">
-    <a class="active" href="/~efw5xb/DatabaseProject/php_pages/login.php">Home</a>
+    <a class="active" href="/~efw5xb/DatabaseProject/php_pages/login.php">FantasyHoos</a>
     <a href="../db_interaction/landing.php">My Team</a>
-    <a href="">Stats Lab</a>
+    <a href="../db_interaction/playerSearch.php">Stats Lab</a>
   </div>
 
 
@@ -80,13 +80,19 @@
     }	
     else {
       echo "<br>";
-      echo "Choose a search category and enter text in the form below.";
+      $output = "Choose a search category and enter text in the form below.";
     } 
   ?>
 
 </br>
 </br>
+
 <div class="SearchBar">
+<?php
+echo $output;
+?>
+</br>
+</br>
 <form method="POST">
   <label for="categories">Search Category:</label>
   <select id="categories" name="category">
