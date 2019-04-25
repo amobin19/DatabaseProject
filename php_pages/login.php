@@ -62,31 +62,43 @@ if(isset($_POST['username'])){
     }
         
 }
-else {
-  if (isset($_SESSION["verified"]) && $_SESSION["verified"] == True){
-    // user has already logged in and is returning to this page
-    echo "<div class='a'>";
-    echo "<h1>Welcome, " . $_SESSION["username"] . "</h1>";
-    echo "</div>";
-
-  }
-}
 ?>
 
 <div class="topnav">
   <a class="active" href="login.php">Home</a>
   <a href="../db_interaction/landing.php">My Team</a>
-  <a href="">Stats Lab</a>
+  <a href="../db_interaction/playerSearch.php">Stats Lab</a>
 <?php if($admin_bit == 1) : ?>
   <a href="../html_pages/add_entry.html">Add Players</a>
   <a href="../html_pages/update_record.html">Update Records</a>
 <?php endif; ?>
 </div>
-<?php if($login_true == 1){
-	echo "<div class='a'>";
-        echo "<h1>Welcome, " . $uname . "</h1>";
-        echo "</div>";
+
+<?php
+
+if (isset($_SESSION["verified"]) && $_SESSION["verified"] == True){
+  // user has already logged in and is returning to this page
+  echo "<div class='a'>";
+  echo "<h1>Welcome, " . $_SESSION["username"] . "!</h1>";
+  echo "<br><br>";
+  echo "<h3>Use the navigation bar above to manage your fantasy team or explore the stats lab.</h3>";
+  echo "</div>";
 }
+else {
+  header("Location: ../html_pages/loginFail.html");
+  //exit();
+}
+
+
+/*
+if($login_true == 1){
+  echo "<div class='a'>";
+  echo "<h1>Welcome, " . $uname . "</h1>";
+  echo "</div>";
+}
+*/
+
 ?>
+
 </body>
 </html>
