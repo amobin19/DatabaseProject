@@ -1,38 +1,84 @@
-<html>   
+<!DOCTYPE html>
+<html>
 <head>
-   <title>Login Page</title>      
-   <style type = "text/css">
-      body {
-         font-family:Arial, Helvetica, sans-serif;
-         font-size:14px;
-      }
-      label {
-         font-weight:bold;
-         width:100px;
-         font-size:14px;
-      }
-      .box {
-         border:#666666 solid 1px;
-      }
-   </style>      
-</head>   
-<body bgcolor = "#FFFFFF"> 
-   <div align = "center">
-      <div style = "width:300px; border: solid 1px #333333; " align = "left">
-         <div style = "background-color:#333333; color:#FFFFFF; padding:3px;"><b>Login</b></div>
-         <div style = "margin:30px">
-            <h1>Incorrect Information. Please try again.</h1>        
-            <form action = "login.php" method = "post">
-               <label>Your Email:</label><input type = "text" name = "username" class = "box"/><br /><br />
-               <label>Password  :</label><input type = "password" name = "password" class = "box" /><br/><br />
-               <input type = "submit" value = " Submit "/><br />
-            </form>
-            <form action="registration.html">
-               <input type = "submit" value = " Register "/>
-            </form>               
-            <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
-         </div>            
-      </div>         
-   </div>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password], input[type=date] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus, input[type=date]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit button */
+.registerbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+</style>
+</head>
+<body>
+
+<form action="../php_pages/login.php" method="post">
+  <div class="container">
+    <h1>Log In</h1>
+    <p><strong>Login Failed. Please Try Again.</strong></p>
+    <hr>
+
+    <label for="email"><b>Your Email</b></label>
+    <input type="text" placeholder="Enter Email" name="username" required>
+
+    <label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password" required>
+
+    <button type="submit" class="registerbtn">Register</button>
+  </div>
+</form>
+
 </body>
 </html>
